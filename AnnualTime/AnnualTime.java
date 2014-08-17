@@ -12,10 +12,11 @@ public class AnnualTime {
 			
 		   //get current date time with Calendar()
 		   Calendar cal = Calendar.getInstance();
-		   DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		   DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		   
 		   System.out.println("The current time is "+dateFormat.format(cal.getTime())+".");
 		   System.out.println("If the base unit were years, the current date and time would be "+ConvertTime.BaseYear(cal)+".");
+		   System.out.println("Or, broken into units: "+ConvertTime.LongBaseYear(cal)+".");
 		   // Year = 1, DoY = 6, HoD = 11, mm = 12, ss = 13, ms = 14
 	}
 
