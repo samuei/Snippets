@@ -9,10 +9,10 @@ def StringRev(inString):
         StringRev(inString[:-1])
 
 #Test Input:
-StringRev("Hello, Darkenss, my old friend")
+StringRev("Hello, Darkness, my old friend")
 print()
 StringRev("I've come to talk with you again")
 
 #Test Output:
-#dneirf dlo ym ,ssnekraD ,olleH
+#dneirf dlo ym ,ssenkraD ,olleH
 #niaga uoy htiw klat ot emoc ev'I 
