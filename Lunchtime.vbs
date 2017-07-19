@@ -24,5 +24,20 @@ index = Int(Rnd() * 100) MOD arrsize
 ' Get quote at that index
 quote = quotearray(index)
 
+' Set up media player
+Dim oPlayer
+Set oPlayer = CreateObject("WMPlayer.OCX")
+
+' Play audio
+oPlayer.URL = "C:\Windows\Media\Festival\Windows Exclamation.wav"
+oPlayer.controls.play 
+
 ' Get my attention, hopefully
 MsgBox "Get your stuff together, change your Pidgin status, and clock out" & vbcrlf & vbcrlf & quote, vbSystemModal, "Lunchtime!"
+
+' Make sure it's done
+While oPlayer.playState <> 1 ' 1 = Stopped
+  WScript.Sleep 10
+Wend
+' Release the audio file
+oPlayer.close
