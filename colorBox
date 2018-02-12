@@ -1,0 +1,29 @@
+Ext.define('indigo.controller.form.ColorBox', {
+	extend: 'indigo.controller.form.Basic',
+	
+	init: function() {
+		this.callParent(arguments);
+		
+		this.listen({
+			component: {
+				'[name=icon]': {
+					change: function(textfield, newVal, oldVal, eOpts) {
+						if (!Ext.isEmpty(newVal) && newVal != "") {
+							var hashIndex = newVal.indexOf("#");
+							if (hashIndex >= 0) { // There's a hash in the input, somewhere. Color the box
+								var val = newVal.substring(hashIndex, hashIndex+7);
+								textfield.setFieldStyle("background-color:"+val+";"); 
+							}
+							else { // No hash? No color.
+								textfield.setFieldStyle('background-color:#ffffff;');
+							}
+						}
+						else { // No value? No color.
+							textfield.setFieldStyle('background-color:#ffffff;');
+						}
+					}
+				}
+			}
+		});
+	},
+});
