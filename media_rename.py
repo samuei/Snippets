@@ -5,11 +5,13 @@ def rename_files(path_to_media):
     # Replace arbitrary filenames with Artist - Song Title in specified folder
     # Example input: rename_files('C:\\Users\\doug\\Music')
     
+    saved_path = os.getcwd()
+    print('Beginning from ' + saved_path)
+    
     print('Getting list of files')
     file_list = os.listdir(path_to_media)
     
-    saved_path = os.getcwd()
-    print('Navigating to ' + saved_path)
+    print('Navigating to ' + path_to_media)
     os.chdir(path_to_media)
     
     files_renamed = 0
