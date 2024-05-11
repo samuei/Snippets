@@ -20,8 +20,8 @@ def rename_files(path_to_media):
     for file_name in file_list:
         oldname, extension = os.path.splitext(file_name)
         
-        # ignore non-mp3 files:
-        if extension == '.mp3':
+        # Ignore non-mp3 files:
+        if extension == '.mp3' or extension == '.m4a':
             tag = TinyTag.get(file_name)
             if tag.artist is None or tag.title is None:
             # Ignore files without the necessary metadata:
@@ -34,7 +34,7 @@ def rename_files(path_to_media):
                       tag.artist.replace('/','∕').replace('\\','\\\\')
                       + ' - '
                       + tag.title.replace('/','∕').replace('\\','\\\\')
-                      + '.mp3')
+                      + extension)
             files_renamed += 1
     
     # Go back to where we were:
