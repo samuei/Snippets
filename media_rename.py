@@ -2,7 +2,7 @@ from tinytag import TinyTag # https://github.com/devsnd/tinytag
 import os
 
 def rename_files(path_to_media):
-    # replace arbitrary filenames with Artist - Song Title in specified folder
+    # Replace arbitrary filenames with Artist - Song Title in specified folder
     # Example input: rename_files('C:\\Users\\doug\\Music')
     
     print('Getting list of files')
@@ -14,15 +14,15 @@ def rename_files(path_to_media):
     
     files_renamed = 0
     files_skipped = 0
-    #rename each file 
+    # Rename each file 
     for file_name in file_list:
         oldname, extension = os.path.splitext(file_name)
         
         # ignore non-mp3 files:
         if extension == '.mp3':
             tag = TinyTag.get(file_name)
-            # ignore files without the necessary metadata:
             if tag.artist is None or tag.title is None:
+            # Ignore files without the necessary metadata:
                 files_skipped += 1
                 continue
             
